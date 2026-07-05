@@ -274,6 +274,7 @@ const I18N = {
     tipsLabelGarden: 'Garten & Pflanzen an diesem Tag',
     modePersonal: 'Persönlich',
     modeGarden: 'Garten',
+    seasons: ['Frühling','Sommer','Herbst','Winter'],
     day: ' Tag', days: ' Tage',
     weekdays: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
     months: ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'],
@@ -292,10 +293,26 @@ const I18N = {
           'Ein kurzes Journaling über Wünsche kann heute besonders klärend wirken.'
         ],
         garden: [
-          'Ruhetag im Garten — bereite Beete und Boden vor, statt zu säen.',
-          'Kranke oder befallene Pflanzen jetzt zurückschneiden.',
-          'Kompost umsetzen und neue Gartenprojekte planen.',
-          'Werkzeuge reinigen und schärfen — der Garten darf heute ruhen.'
+          [ // Frühling
+            'Beete für die Saison vorbereiten und Boden lockern.',
+            'Kranke Triebe und Frostschäden zurückschneiden.',
+            'Anzucht planen — gesät wird erst wieder ab morgen.'
+          ],
+          [ // Sommer
+            'Heute nichts säen — lieber Beete pflegen und Boden hacken.',
+            'Kranke oder befallene Pflanzen konsequent ausputzen.',
+            'Den Garten beobachten: Was braucht in den nächsten Wochen Platz?'
+          ],
+          [ // Herbst
+            'Abgeerntete Beete räumen und Boden vorbereiten.',
+            'Kranke Pflanzenteile entfernen — nicht auf den Kompost.',
+            'Fruchtfolge und Beetaufteilung für nächstes Jahr skizzieren.'
+          ],
+          [ // Winter
+            'Ruhetag — Werkzeuge reinigen, schärfen und ölen.',
+            'Saatgut sichten und die neue Saison planen.',
+            'Bei frostfreiem Wetter kranke Äste an Gehölzen entfernen.'
+          ]
         ]
       },
       waxCrescent: {
@@ -308,10 +325,26 @@ const I18N = {
           'Vermeide es, dich schon jetzt festzulegen.'
         ],
         garden: [
-          'Gute Zeit für die Aussaat von Blattgemüse wie Salat, Spinat oder Kräutern.',
-          'Rasen säen oder nachsäen — er keimt jetzt besonders willig.',
-          'Jungpflanzen umtopfen, sie wurzeln schnell an.',
-          'Zimmerpflanzen gießen und düngen.'
+          [ // Frühling
+            'Salat, Spinat und Kräuter säen — drinnen oder im Frühbeet.',
+            'Rasen säen oder nachsäen, er keimt jetzt willig.',
+            'Jungpflanzen pikieren und umtopfen.'
+          ],
+          [ // Sommer
+            'Nachsäen: Salat, Rucola und schnelle Kräuter für den Herbst.',
+            'Zweijährige Blumen wie Stiefmütterchen aussäen.',
+            'Zimmerpflanzen gießen und düngen.'
+          ],
+          [ // Herbst
+            'Feldsalat, Spinat und Wintersalate säen.',
+            'Rasen ein letztes Mal nachsäen, solange der Boden warm ist.',
+            'Kräuter in Töpfe setzen und ans Fensterbrett holen.'
+          ],
+          [ // Winter
+            'Auf der Fensterbank Kresse und Keimsprossen ziehen.',
+            'Zimmerpflanzen und Überwinterer sparsam gießen.',
+            'Gegen Ende des Winters erste Chili und Paprika vorziehen.'
+          ]
         ]
       },
       firstQuarter: {
@@ -324,10 +357,26 @@ const I18N = {
           'Kommunikation heute lieber direkt als diplomatisch verpackt.'
         ],
         garden: [
-          'Alles säen und pflanzen, was oberirdisch wächst und Blätter bildet.',
-          'Stecklinge schneiden — sie bewurzeln jetzt gut.',
-          'Schwache Pflanzen mit Flüssigdünger stärken.',
-          'Noch nichts ernten, was lange lagern soll.'
+          [ // Frühling
+            'Oberirdisches Gemüse säen und pflanzen: Kohlrabi, Mangold, Erbsen.',
+            'Stecklinge schneiden — sie bewurzeln jetzt gut.',
+            'Schwache Jungpflanzen mit Flüssigdünger stärken.'
+          ],
+          [ // Sommer
+            'Buschbohnen und Herbstkohl jetzt noch säen bzw. pflanzen.',
+            'Kräuterstecklinge schneiden und bewurzeln.',
+            'Hochwachsende Pflanzen aufbinden und stützen.'
+          ],
+          [ // Herbst
+            'Wintergemüse wie Grünkohl und Winterportulak pflanzen.',
+            'Gehölzstecklinge schneiden und in Erde schulen.',
+            'Kübelpflanzen fürs Winterquartier vorbereiten.'
+          ],
+          [ // Winter
+            'Auf der Fensterbank Paprika und Chili vorziehen.',
+            'Stecklinge von Zimmerpflanzen bewurzeln.',
+            'Obstgehölze für Veredelungen im Frühjahr auswählen.'
+          ]
         ]
       },
       waxGibbous: {
@@ -340,10 +389,26 @@ const I18N = {
           'Achte darauf, die wachsende Energie nicht in Hektik kippen zu lassen.'
         ],
         garden: [
-          'Fruchtgemüse wie Tomaten, Bohnen oder Zucchini säen und pflanzen.',
-          'Kräftig gießen — die Pflanzen nehmen Wasser jetzt gut auf.',
-          'Obstbäume und Beerensträucher düngen.',
-          'Blumen für die Vase schneiden, sie halten länger.'
+          [ // Frühling
+            'Tomaten, Zucchini und Bohnen säen — oder nach den Eisheiligen pflanzen.',
+            'Kräftig gießen und Starkzehrer düngen.',
+            'Obstbäume und Beerensträucher mit Kompost versorgen.'
+          ],
+          [ // Sommer
+            'Fruchtgemüse pflegen: ausgeizen, gießen, düngen.',
+            'Gurken und Zucchini regelmäßig durchpflücken — das fördert Neuansatz.',
+            'Blumen für die Vase schneiden, sie halten länger.'
+          ],
+          [ // Herbst
+            'Letzte Früchte ausreifen lassen — beschattende Blätter entfernen.',
+            'Kübelpflanzen ein letztes Mal düngen.',
+            'Gründüngung auf leere Beete säen.'
+          ],
+          [ // Winter
+            'Zimmerpflanzen mit Licht und maßvollen Wassergaben unterstützen.',
+            'Bei mildem Wetter immergrüne Pflanzen gießen.',
+            'Den Obstbaumschnitt vorbereiten, Werkzeug richten.'
+          ]
         ]
       },
       fullMoon: {
@@ -356,10 +421,26 @@ const I18N = {
           'Vermeide impulsive Konflikte — Reizbarkeit ist heute wahrscheinlicher.'
         ],
         garden: [
-          'Kräuter ernten — ihr Aroma und ihre Wirkstoffe gelten heute als am stärksten.',
-          'Obst und Gemüse für den sofortigen Verzehr ernten.',
-          'Heute möglichst nicht schneiden oder zurückstutzen.',
-          'Ein guter Tag, um Saatgut zu gewinnen.'
+          [ // Frühling
+            'Erste Kräuter ernten — das Aroma gilt heute als am stärksten.',
+            'Heute möglichst nicht schneiden oder mähen.',
+            'Ein guter Tag, um Wildkräuter zu sammeln.'
+          ],
+          [ // Sommer
+            'Kräuter für den Wintervorrat ernten und trocknen.',
+            'Obst und Gemüse für den sofortigen Verzehr pflücken.',
+            'Saatgut von verblühten Lieblingsblumen sammeln.'
+          ],
+          [ // Herbst
+            'Letzte Kräuter vor dem Frost ernten.',
+            'Äpfel und Birnen für den baldigen Verzehr pflücken.',
+            'Samen für nächstes Jahr sammeln und trocknen.'
+          ],
+          [ // Winter
+            'Frische Triebe von Fensterbank-Kräutern ernten.',
+            'Heute weder schneiden noch sägen.',
+            'Futterstellen für Vögel auffüllen und beobachten.'
+          ]
         ]
       },
       wanGibbous: {
@@ -372,10 +453,26 @@ const I18N = {
           'Reduziere Reize — ein ruhigerer Tagesrhythmus tut jetzt gut.'
         ],
         garden: [
-          'Wurzelgemüse wie Karotten, Radieschen oder Zwiebeln säen.',
-          'Beete umgraben und Boden lockern — Unkraut wächst langsamer nach.',
-          'Hecken und Sträucher schneiden, der Rückschnitt bleibt länger in Form.',
-          'Organisch düngen — der Boden nimmt Nährstoffe jetzt gut auf.'
+          [ // Frühling
+            'Karotten, Radieschen und Zwiebeln säen.',
+            'Beete umgraben und jäten — Unkraut wächst langsamer nach.',
+            'Hecken in Form schneiden.'
+          ],
+          [ // Sommer
+            'Späte Möhren und Rote Bete säen.',
+            'Verblühtes zurückschneiden, Hecken nachschneiden.',
+            'Organisch düngen — der Boden nimmt Nährstoffe gut auf.'
+          ],
+          [ // Herbst
+            'Wintersteckzwiebeln und Knoblauch stecken.',
+            'Bäume und Sträucher pflanzen — sie wurzeln jetzt gut an.',
+            'Letzter Heckenschnitt vor dem Winter.'
+          ],
+          [ // Winter
+            'Bei frostfreiem Boden Obstbäume auslichten.',
+            'Beete mit Kompost oder Mist versorgen.',
+            'Eingelagertes Wurzelgemüse kontrollieren.'
+          ]
         ]
       },
       lastQuarter: {
@@ -388,10 +485,26 @@ const I18N = {
           'Vermeide es, heute etwas komplett Neues zu starten.'
         ],
         garden: [
-          'Jäten und Schädlinge bekämpfen wirkt jetzt besonders nachhaltig.',
-          'Obst und Gemüse für die Lagerung ernten — es hält länger.',
-          'Stark wuchernde Pflanzen kräftig zurückschneiden.',
-          'Blumenzwiebeln und Knollen setzen.'
+          [ // Frühling
+            'Gründlich jäten — Unkraut kommt jetzt schwächer zurück.',
+            'Schnecken und Schädlinge konsequent absammeln.',
+            'Sommerblumenzwiebeln wie Dahlien setzen.'
+          ],
+          [ // Sommer
+            'Jäten und mulchen, bevor Unkraut aussamt.',
+            'Kartoffeln für die Lagerung ernten.',
+            'Kranke Blätter ausputzen, Schädlinge kontrollieren.'
+          ],
+          [ // Herbst
+            'Lagerobst und -gemüse ernten — es hält jetzt länger.',
+            'Frühjahrsblüher wie Tulpen und Narzissen stecken.',
+            'Stauden teilen und zurückschneiden.'
+          ],
+          [ // Winter
+            'Vorräte im Keller durchsehen und aussortieren.',
+            'An frostfreien Tagen Beete von altem Laub befreien.',
+            'Nistkästen reinigen und aufhängen.'
+          ]
         ]
       },
       wanCrescent: {
@@ -404,10 +517,26 @@ const I18N = {
           'Frühes Schlafengehen wird dir heute besonders guttun.'
         ],
         garden: [
-          'Letzte Gelegenheit zum Jäten, bevor der neue Zyklus beginnt.',
-          'Kompost ausbringen und Beete mit Mulch abdecken.',
-          'Nichts Neues säen — der Garten sammelt Kraft.',
-          'Eingelagertes Obst und Gemüse durchsehen.'
+          [ // Frühling
+            'Kompost ausbringen und Beete mulchen.',
+            'Letztes Jäten vor dem Neumond.',
+            'Gießen und pflegen, aber nichts Neues säen.'
+          ],
+          [ // Sommer
+            'Beete mulchen, um Feuchtigkeit zu halten.',
+            'Kompost umsetzen.',
+            'Dem Garten (und dir) einen ruhigen Tag gönnen.'
+          ],
+          [ // Herbst
+            'Laub sammeln — als Mulch nutzen oder kompostieren.',
+            'Empfindliche Pflanzen mit Vlies und Mulch schützen.',
+            'Den Garten winterfest machen, Ruhe kehrt ein.'
+          ],
+          [ // Winter
+            'Der Garten ruht — Vorräte und Saatgut prüfen.',
+            'Kompost abdecken, damit Nährstoffe nicht auswaschen.',
+            'Kraft sammeln und die neue Gartensaison erträumen.'
+          ]
         ]
       }
     }
@@ -424,6 +553,7 @@ const I18N = {
     tipsLabelGarden: 'Jardim e plantas neste dia',
     modePersonal: 'Pessoal',
     modeGarden: 'Jardim',
+    seasons: ['primavera','verão','outono','inverno'],
     day: ' dia', days: ' dias',
     weekdays: ['domingo','segunda','terça','quarta','quinta','sexta','sábado'],
     months: ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'],
@@ -442,10 +572,26 @@ const I18N = {
           'Escrever sobre os seus desejos pode ser especialmente esclarecedor hoje.'
         ],
         garden: [
-          'Dia de descanso no jardim — prepare canteiros e solo, em vez de semear.',
-          'Faça a poda de plantas doentes ou infestadas.',
-          'Revire o composto e planeje novos projetos de jardinagem.',
-          'Limpe e afie as ferramentas — o jardim pode descansar hoje.'
+          [ // primavera
+            'Prepare canteiros e solte o solo para a estação.',
+            'Pode ramos doentes e limpe as plantas.',
+            'Planeje a horta — semear, só a partir de amanhã.'
+          ],
+          [ // verão
+            'Não semeie hoje — capine e cuide dos canteiros.',
+            'Remova plantas doentes ou atacadas por pragas.',
+            'Observe o jardim: o que vai precisar de espaço em breve?'
+          ],
+          [ // outono
+            'Limpe os canteiros colhidos e prepare o solo.',
+            'Retire partes doentes — não as coloque no composto.',
+            'Esboce o plano da horta para a próxima estação.'
+          ],
+          [ // inverno
+            'Dia de descanso — limpe, afie e lubrifique as ferramentas.',
+            'Revise as sementes e planeje os próximos plantios.',
+            'Remova galhos secos ou doentes das árvores.'
+          ]
         ]
       },
       waxCrescent: {
@@ -458,10 +604,26 @@ const I18N = {
           'Evite comprometer-se definitivamente já agora.'
         ],
         garden: [
-          'Boa época para semear folhosas como alface, espinafre ou ervas.',
-          'Semeie ou replante o gramado — a germinação é favorecida agora.',
-          'Transplante mudas jovens, elas enraízam rápido.',
-          'Regue e adube as plantas de interior.'
+          [ // primavera
+            'Semeie alface, rúcula e ervas aromáticas.',
+            'Semeie ou replante o gramado.',
+            'Repique e transplante as mudas jovens.'
+          ],
+          [ // verão
+            'Semeie folhosas resistentes ao calor, em meia-sombra.',
+            'Regue as sementeiras de manhã cedo.',
+            'Adube as plantas de interior.'
+          ],
+          [ // outono
+            'Boa época para alface, couve, espinafre e coentro.',
+            'Replante o gramado enquanto o solo está quente.',
+            'Plante ervas em vasos perto da cozinha.'
+          ],
+          [ // inverno
+            'Semeie folhosas de inverno: couve, alface, rúcula.',
+            'Cultive brotos e sementes germinadas na cozinha.',
+            'Regue com moderação as plantas de interior.'
+          ]
         ]
       },
       firstQuarter: {
@@ -474,10 +636,26 @@ const I18N = {
           'Hoje, comunique de forma direta em vez de diplomática.'
         ],
         garden: [
-          'Semeie e plante tudo o que cresce acima do solo e forma folhas.',
-          'Faça estacas — elas enraízam bem agora.',
-          'Fortaleça plantas fracas com adubo líquido.',
-          'Evite colher o que deve ser armazenado por muito tempo.'
+          [ // primavera
+            'Plante e semeie hortaliças que crescem acima do solo.',
+            'Faça estacas — elas enraízam bem agora.',
+            'Fortaleça as mudas com adubo líquido.'
+          ],
+          [ // verão
+            'Semeie feijão e milho, aproveitando as chuvas.',
+            'Faça estacas de ervas e arbustos.',
+            'Amarre e escore as plantas altas.'
+          ],
+          [ // outono
+            'Plante brássicas como couve-flor e brócolis.',
+            'Faça estacas de arbustos lenhosos.',
+            'Proteja os vasos sensíveis do tempo mais fresco.'
+          ],
+          [ // inverno
+            'Adiante mudas em bandejas protegidas.',
+            'Enraíze estacas de plantas de interior.',
+            'Escolha as árvores para enxertia na primavera.'
+          ]
         ]
       },
       waxGibbous: {
@@ -490,10 +668,26 @@ const I18N = {
           'Cuidado para que a energia crescente não vire agitação.'
         ],
         garden: [
-          'Semeie e plante frutos como tomate, feijão ou abobrinha.',
-          'Regue generosamente — as plantas absorvem bem a água agora.',
-          'Adube árvores frutíferas e arbustos de frutas.',
-          'Corte flores para o vaso, elas duram mais.'
+          [ // primavera
+            'Semeie e plante tomate, abobrinha e pimentão.',
+            'Regue bem e adube as plantas mais exigentes.',
+            'Aplique composto nas frutíferas e arbustos.'
+          ],
+          [ // verão
+            'Cuide dos frutos: desbrote, regue e adube.',
+            'Colha pepino e abobrinha com frequência — estimula novos frutos.',
+            'Corte flores para o vaso, elas duram mais.'
+          ],
+          [ // outono
+            'Deixe os últimos frutos amadurecerem ao sol.',
+            'Adube os vasos pela última vez antes do inverno.',
+            'Semeie adubo verde nos canteiros vazios.'
+          ],
+          [ // inverno
+            'Plante morangos e prepare canteiros para a primavera.',
+            'Regue as plantas perenes em dias secos.',
+            'Prepare a poda das frutíferas.'
+          ]
         ]
       },
       fullMoon: {
@@ -506,10 +700,26 @@ const I18N = {
           'Evite conflitos impulsivos — a irritabilidade é mais provável hoje.'
         ],
         garden: [
-          'Colha ervas — seu aroma e princípios ativos são considerados mais fortes hoje.',
-          'Colha frutas e legumes para consumo imediato.',
-          'Evite podar ou cortar hoje.',
-          'Bom dia para recolher sementes.'
+          [ // primavera
+            'Colha as primeiras ervas — o aroma é mais intenso hoje.',
+            'Evite podar ou cortar hoje.',
+            'Bom dia para colher plantas silvestres.'
+          ],
+          [ // verão
+            'Colha ervas para secar e guardar.',
+            'Colha frutas e legumes para consumo imediato.',
+            'Recolha sementes das suas flores preferidas.'
+          ],
+          [ // outono
+            'Colha as últimas ervas da estação.',
+            'Colha frutas para consumo próximo.',
+            'Recolha e seque sementes para o próximo ano.'
+          ],
+          [ // inverno
+            'Colha brotos frescos das ervas de vaso.',
+            'Evite podar ou serrar hoje.',
+            'Abasteça os comedouros dos passarinhos.'
+          ]
         ]
       },
       wanGibbous: {
@@ -522,10 +732,26 @@ const I18N = {
           'Reduza estímulos — um ritmo mais calmo faz bem agora.'
         ],
         garden: [
-          'Semeie raízes como cenoura, rabanete ou cebola.',
-          'Revolva os canteiros e afofe o solo — as ervas daninhas voltam mais devagar.',
-          'Apare cercas-vivas e arbustos — o corte mantém a forma por mais tempo.',
-          'Use adubo orgânico — o solo absorve bem os nutrientes agora.'
+          [ // primavera
+            'Semeie cenoura, rabanete e beterraba.',
+            'Capine os canteiros — as ervas daninhas voltam devagar.',
+            'Apare as cercas-vivas.'
+          ],
+          [ // verão
+            'Semeie raízes para colher no outono.',
+            'Corte o que já floresceu e apare as cercas-vivas.',
+            'Use adubo orgânico — o solo absorve bem agora.'
+          ],
+          [ // outono
+            'Plante alho e cebola.',
+            'Plante árvores e arbustos — eles enraízam bem.',
+            'Faça o último corte das cercas-vivas.'
+          ],
+          [ // inverno
+            'Faça a poda de limpeza das frutíferas.',
+            'Enriqueça os canteiros com composto ou esterco.',
+            'Verifique as raízes armazenadas.'
+          ]
         ]
       },
       lastQuarter: {
@@ -538,10 +764,26 @@ const I18N = {
           'Evite começar algo completamente novo hoje.'
         ],
         garden: [
-          'Capinar e combater pragas agora tem efeito especialmente duradouro.',
-          'Colha frutas e legumes para armazenar — eles se conservam por mais tempo.',
-          'Faça podas fortes em plantas que crescem demais.',
-          'Plante bulbos e tubérculos de flores.'
+          [ // primavera
+            'Capine a fundo — as ervas daninhas enfraquecem.',
+            'Recolha caracóis e controle as pragas.',
+            'Plante bulbos de verão, como dálias.'
+          ],
+          [ // verão
+            'Capine e faça cobertura morta antes que as invasoras espalhem sementes.',
+            'Colha batatas para armazenar.',
+            'Remova folhas doentes e controle as pragas.'
+          ],
+          [ // outono
+            'Colha frutas e legumes para armazenar — duram mais.',
+            'Plante bulbos que florescem na primavera.',
+            'Divida e pode as plantas perenes.'
+          ],
+          [ // inverno
+            'Revise os estoques da despensa.',
+            'Limpe os canteiros de folhas velhas.',
+            'Limpe e pendure abrigos para os pássaros.'
+          ]
         ]
       },
       wanCrescent: {
@@ -554,10 +796,26 @@ const I18N = {
           'Dormir cedo fará especialmente bem hoje.'
         ],
         garden: [
-          'Última chance de capinar antes do novo ciclo começar.',
-          'Espalhe composto e cubra os canteiros com cobertura morta.',
-          'Não semeie nada novo — o jardim recupera as forças.',
-          'Revise frutas e legumes armazenados.'
+          [ // primavera
+            'Espalhe composto e cubra os canteiros.',
+            'Última capina antes da lua nova.',
+            'Regue e cuide, mas não semeie nada novo.'
+          ],
+          [ // verão
+            'Cubra os canteiros para manter a umidade.',
+            'Revire o composto.',
+            'Conceda um dia tranquilo ao jardim (e a você).'
+          ],
+          [ // outono
+            'Recolha folhas para o composto ou a cobertura morta.',
+            'Proteja as plantas sensíveis com cobertura.',
+            'Prepare o jardim para o descanso.'
+          ],
+          [ // inverno
+            'O jardim descansa — revise estoques e sementes.',
+            'Cubra o composto para não perder nutrientes.',
+            'Recupere as forças e sonhe com a nova estação.'
+          ]
         ]
       }
     }
@@ -653,8 +911,13 @@ function updateForOffset(offsetDays){
   phaseNameEl.textContent = info.name;
   illumTextEl.textContent = illumination(phase) + L.illumSuffix;
   phaseMoodEl.textContent = info.mood;
-  document.getElementById('tipsLabel').textContent = tipsMode === 'garden' ? L.tipsLabelGarden : L.tipsLabel;
-  const tips = tipsMode === 'garden' ? info.garden : info.tips;
+  // Jahreszeit aus dem angezeigten Datum; PT = Brasilien = Südhalbkugel (Jahreszeiten um 2 verschoben)
+  let season = Math.floor(((target.getMonth() - 2 + 12) % 12) / 3); // 0=Frühling … 3=Winter (Nordhalbkugel)
+  if(lang === 'pt') season = (season + 2) % 4;
+  document.getElementById('tipsLabel').textContent = tipsMode === 'garden'
+    ? L.tipsLabelGarden + ' · ' + L.seasons[season]
+    : L.tipsLabel;
+  const tips = tipsMode === 'garden' ? info.garden[season] : info.tips;
   tipsList.innerHTML = '';
   tips.forEach(t=>{
     const li = document.createElement('li');
