@@ -1,5 +1,5 @@
 // Service Worker: alles einmal cachen, danach offline aus dem Cache bedienen
-const CACHE = 'luna-v1';
+const CACHE = 'luna-v2';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-180.png'];
 
 self.addEventListener('install', e => {

@@ -49,10 +49,15 @@
   }
   @keyframes twinkle{ 0%,100%{opacity:.15} 50%{opacity:.8} }
 
-  .wrap{ position:relative; z-index:1; max-width:460px; margin:0 auto; padding: 28px 20px 10px; }
+  .wrap{
+    position:relative; z-index:1; max-width:460px; margin:0 auto; padding: 28px 20px 10px;
+    /* Platz für iPhone-Statusleiste (Notch, Batterie, Netz) im Standalone-Modus */
+    padding-top: calc(28px + env(safe-area-inset-top, 0px));
+  }
 
   .lang-switch{
     position:absolute; top:14px; right:16px; display:flex; gap:4px; z-index:2;
+    top: calc(14px + env(safe-area-inset-top, 0px));
   }
   .lang-switch button{
     background:none; border:1px solid transparent; color:var(--text-dim);
@@ -146,10 +151,20 @@
   .illum{ font-size:12px; color: var(--text-dim); }
   .phase-mood{ font-size: 14px; line-height:1.55; color: var(--silver); opacity:.92; margin-bottom:14px; }
 
+  .tips-head{
+    display:flex; justify-content:space-between; align-items:center; gap:8px;
+    margin-bottom:8px; flex-wrap:wrap;
+  }
   .tips-label{
     font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--violet);
-    margin-bottom:8px;
   }
+  .tips-mode{ display:flex; gap:4px; }
+  .tips-mode button{
+    background:none; border:1px solid transparent; color:var(--text-dim);
+    font-family:'Work Sans',sans-serif; font-size:10px; letter-spacing:1px; text-transform:uppercase;
+    padding:3px 8px; border-radius:12px; cursor:pointer;
+  }
+  .tips-mode button.active{ color:var(--gold); border-color:var(--line); }
   .tips{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
   .tips li{
     font-size: 13.5px; line-height:1.5; padding-left: 16px; position:relative; color: var(--silver); opacity:.9;
@@ -217,7 +232,13 @@
       <span class="illum" id="illumText">—</span>
     </div>
     <div class="phase-mood" id="phaseMood">—</div>
-    <div class="tips-label" id="tipsLabel">Energie &amp; Impulse für diesen Tag</div>
+    <div class="tips-head">
+      <div class="tips-label" id="tipsLabel">Energie &amp; Impulse für diesen Tag</div>
+      <div class="tips-mode">
+        <button id="modePersonal" class="active">Persönlich</button>
+        <button id="modeGarden">Garten</button>
+      </div>
+    </div>
     <ul class="tips" id="tipsList"></ul>
   </div>
 
@@ -250,6 +271,9 @@ const I18N = {
     fullMoonBtn: '🌕 Vollmond',
     illumSuffix: '% beleuchtet',
     tipsLabel: 'Energie & Impulse für diesen Tag',
+    tipsLabelGarden: 'Garten & Pflanzen an diesem Tag',
+    modePersonal: 'Persönlich',
+    modeGarden: 'Garten',
     day: ' Tag', days: ' Tage',
     weekdays: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
     months: ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'],
@@ -266,6 +290,12 @@ const I18N = {
           'Vermeide große Entscheidungen unter Zeitdruck.',
           'Gönn dir bewusst Ruhe statt neuer Verpflichtungen.',
           'Ein kurzes Journaling über Wünsche kann heute besonders klärend wirken.'
+        ],
+        garden: [
+          'Ruhetag im Garten — bereite Beete und Boden vor, statt zu säen.',
+          'Kranke oder befallene Pflanzen jetzt zurückschneiden.',
+          'Kompost umsetzen und neue Gartenprojekte planen.',
+          'Werkzeuge reinigen und schärfen — der Garten darf heute ruhen.'
         ]
       },
       waxCrescent: {
@@ -276,6 +306,12 @@ const I18N = {
           'Bleib flexibel — Pläne dürfen sich noch verändern.',
           'Umgib dich mit Menschen, die dich ermutigen.',
           'Vermeide es, dich schon jetzt festzulegen.'
+        ],
+        garden: [
+          'Gute Zeit für die Aussaat von Blattgemüse wie Salat, Spinat oder Kräutern.',
+          'Rasen säen oder nachsäen — er keimt jetzt besonders willig.',
+          'Jungpflanzen umtopfen, sie wurzeln schnell an.',
+          'Zimmerpflanzen gießen und düngen.'
         ]
       },
       firstQuarter: {
@@ -286,6 +322,12 @@ const I18N = {
           'Triff eine Entscheidung, die du schon länger vor dir herschiebst.',
           'Kanalisiere aufkommende Unruhe in Bewegung oder Sport.',
           'Kommunikation heute lieber direkt als diplomatisch verpackt.'
+        ],
+        garden: [
+          'Alles säen und pflanzen, was oberirdisch wächst und Blätter bildet.',
+          'Stecklinge schneiden — sie bewurzeln jetzt gut.',
+          'Schwache Pflanzen mit Flüssigdünger stärken.',
+          'Noch nichts ernten, was lange lagern soll.'
         ]
       },
       waxGibbous: {
@@ -296,6 +338,12 @@ const I18N = {
           'Guter Tag für Gespräche, in denen du sichtbar werden willst.',
           'Nutze den Schwung für Dinge, die Ausdauer brauchen.',
           'Achte darauf, die wachsende Energie nicht in Hektik kippen zu lassen.'
+        ],
+        garden: [
+          'Fruchtgemüse wie Tomaten, Bohnen oder Zucchini säen und pflanzen.',
+          'Kräftig gießen — die Pflanzen nehmen Wasser jetzt gut auf.',
+          'Obstbäume und Beerensträucher düngen.',
+          'Blumen für die Vase schneiden, sie halten länger.'
         ]
       },
       fullMoon: {
@@ -306,6 +354,12 @@ const I18N = {
           'Plane bewusst Zeit für Ruhe ein, falls der Schlaf heute unruhiger ist.',
           'Guter Moment, um etwas Abgeschlossenes zu feiern oder loszulassen.',
           'Vermeide impulsive Konflikte — Reizbarkeit ist heute wahrscheinlicher.'
+        ],
+        garden: [
+          'Kräuter ernten — ihr Aroma und ihre Wirkstoffe gelten heute als am stärksten.',
+          'Obst und Gemüse für den sofortigen Verzehr ernten.',
+          'Heute möglichst nicht schneiden oder zurückstutzen.',
+          'Ein guter Tag, um Saatgut zu gewinnen.'
         ]
       },
       wanGibbous: {
@@ -316,6 +370,12 @@ const I18N = {
           'Gute Zeit, um Aufgaben abzuschließen statt neue zu beginnen.',
           'Praktiziere bewusst Dankbarkeit für das Erreichte.',
           'Reduziere Reize — ein ruhigerer Tagesrhythmus tut jetzt gut.'
+        ],
+        garden: [
+          'Wurzelgemüse wie Karotten, Radieschen oder Zwiebeln säen.',
+          'Beete umgraben und Boden lockern — Unkraut wächst langsamer nach.',
+          'Hecken und Sträucher schneiden, der Rückschnitt bleibt länger in Form.',
+          'Organisch düngen — der Boden nimmt Nährstoffe jetzt gut auf.'
         ]
       },
       lastQuarter: {
@@ -326,6 +386,12 @@ const I18N = {
           'Kläre einen schwelenden Konflikt, statt ihn weiterzutragen.',
           'Trenne dich von etwas, das seinen Zweck erfüllt hat.',
           'Vermeide es, heute etwas komplett Neues zu starten.'
+        ],
+        garden: [
+          'Jäten und Schädlinge bekämpfen wirkt jetzt besonders nachhaltig.',
+          'Obst und Gemüse für die Lagerung ernten — es hält länger.',
+          'Stark wuchernde Pflanzen kräftig zurückschneiden.',
+          'Blumenzwiebeln und Knollen setzen.'
         ]
       },
       wanCrescent: {
@@ -336,6 +402,12 @@ const I18N = {
           'Reflektiere, was du in den nächsten Neumond mitnehmen willst.',
           'Sag Verpflichtungen ab, die dich gerade nur auslaugen.',
           'Frühes Schlafengehen wird dir heute besonders guttun.'
+        ],
+        garden: [
+          'Letzte Gelegenheit zum Jäten, bevor der neue Zyklus beginnt.',
+          'Kompost ausbringen und Beete mit Mulch abdecken.',
+          'Nichts Neues säen — der Garten sammelt Kraft.',
+          'Eingelagertes Obst und Gemüse durchsehen.'
         ]
       }
     }
@@ -349,6 +421,9 @@ const I18N = {
     fullMoonBtn: '🌕 Lua cheia',
     illumSuffix: '% iluminada',
     tipsLabel: 'Energia e impulsos para este dia',
+    tipsLabelGarden: 'Jardim e plantas neste dia',
+    modePersonal: 'Pessoal',
+    modeGarden: 'Jardim',
     day: ' dia', days: ' dias',
     weekdays: ['domingo','segunda','terça','quarta','quinta','sexta','sábado'],
     months: ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'],
@@ -365,6 +440,12 @@ const I18N = {
           'Evite grandes decisões sob pressão de tempo.',
           'Permita-se descanso consciente em vez de novos compromissos.',
           'Escrever sobre os seus desejos pode ser especialmente esclarecedor hoje.'
+        ],
+        garden: [
+          'Dia de descanso no jardim — prepare canteiros e solo, em vez de semear.',
+          'Faça a poda de plantas doentes ou infestadas.',
+          'Revire o composto e planeje novos projetos de jardinagem.',
+          'Limpe e afie as ferramentas — o jardim pode descansar hoje.'
         ]
       },
       waxCrescent: {
@@ -375,6 +456,12 @@ const I18N = {
           'Mantenha-se flexível — os planos ainda podem mudar.',
           'Cerque-se de pessoas que o encorajam.',
           'Evite comprometer-se definitivamente já agora.'
+        ],
+        garden: [
+          'Boa época para semear folhosas como alface, espinafre ou ervas.',
+          'Semeie ou replante o gramado — a germinação é favorecida agora.',
+          'Transplante mudas jovens, elas enraízam rápido.',
+          'Regue e adube as plantas de interior.'
         ]
       },
       firstQuarter: {
@@ -385,6 +472,12 @@ const I18N = {
           'Tome uma decisão que vem adiando há tempo.',
           'Canalize a inquietação em movimento ou exercício físico.',
           'Hoje, comunique de forma direta em vez de diplomática.'
+        ],
+        garden: [
+          'Semeie e plante tudo o que cresce acima do solo e forma folhas.',
+          'Faça estacas — elas enraízam bem agora.',
+          'Fortaleça plantas fracas com adubo líquido.',
+          'Evite colher o que deve ser armazenado por muito tempo.'
         ]
       },
       waxGibbous: {
@@ -395,6 +488,12 @@ const I18N = {
           'Bom dia para conversas em que você quer ser visto.',
           'Aproveite o impulso para tarefas que exigem perseverança.',
           'Cuidado para que a energia crescente não vire agitação.'
+        ],
+        garden: [
+          'Semeie e plante frutos como tomate, feijão ou abobrinha.',
+          'Regue generosamente — as plantas absorvem bem a água agora.',
+          'Adube árvores frutíferas e arbustos de frutas.',
+          'Corte flores para o vaso, elas duram mais.'
         ]
       },
       fullMoon: {
@@ -405,6 +504,12 @@ const I18N = {
           'Reserve tempo para descansar, caso o sono esteja mais agitado.',
           'Bom momento para celebrar ou soltar algo concluído.',
           'Evite conflitos impulsivos — a irritabilidade é mais provável hoje.'
+        ],
+        garden: [
+          'Colha ervas — seu aroma e princípios ativos são considerados mais fortes hoje.',
+          'Colha frutas e legumes para consumo imediato.',
+          'Evite podar ou cortar hoje.',
+          'Bom dia para recolher sementes.'
         ]
       },
       wanGibbous: {
@@ -415,6 +520,12 @@ const I18N = {
           'Bom momento para concluir tarefas em vez de começar novas.',
           'Pratique gratidão consciente pelo que foi alcançado.',
           'Reduza estímulos — um ritmo mais calmo faz bem agora.'
+        ],
+        garden: [
+          'Semeie raízes como cenoura, rabanete ou cebola.',
+          'Revolva os canteiros e afofe o solo — as ervas daninhas voltam mais devagar.',
+          'Apare cercas-vivas e arbustos — o corte mantém a forma por mais tempo.',
+          'Use adubo orgânico — o solo absorve bem os nutrientes agora.'
         ]
       },
       lastQuarter: {
@@ -425,6 +536,12 @@ const I18N = {
           'Esclareça um conflito latente, em vez de carregá-lo adiante.',
           'Desfaça-se de algo que já cumpriu o seu propósito.',
           'Evite começar algo completamente novo hoje.'
+        ],
+        garden: [
+          'Capinar e combater pragas agora tem efeito especialmente duradouro.',
+          'Colha frutas e legumes para armazenar — eles se conservam por mais tempo.',
+          'Faça podas fortes em plantas que crescem demais.',
+          'Plante bulbos e tubérculos de flores.'
         ]
       },
       wanCrescent: {
@@ -435,6 +552,12 @@ const I18N = {
           'Reflita sobre o que quer levar para a próxima lua nova.',
           'Cancele compromissos que só o esgotam.',
           'Dormir cedo fará especialmente bem hoje.'
+        ],
+        garden: [
+          'Última chance de capinar antes do novo ciclo começar.',
+          'Espalhe composto e cubra os canteiros com cobertura morta.',
+          'Não semeie nada novo — o jardim recupera as forças.',
+          'Revise frutas e legumes armazenados.'
         ]
       }
     }
@@ -444,6 +567,10 @@ const I18N = {
 let lang = 'de';
 try{ lang = localStorage.getItem('luna-lang') || 'de'; }catch(e){}
 if(!I18N[lang]) lang = 'de';
+
+let tipsMode = 'personal';
+try{ tipsMode = localStorage.getItem('luna-tips') || 'personal'; }catch(e){}
+if(tipsMode !== 'garden') tipsMode = 'personal';
 
 // ---------- Mondphasen-Mathematik ----------
 const SYNODIC = 29.530588853;
@@ -526,8 +653,10 @@ function updateForOffset(offsetDays){
   phaseNameEl.textContent = info.name;
   illumTextEl.textContent = illumination(phase) + L.illumSuffix;
   phaseMoodEl.textContent = info.mood;
+  document.getElementById('tipsLabel').textContent = tipsMode === 'garden' ? L.tipsLabelGarden : L.tipsLabel;
+  const tips = tipsMode === 'garden' ? info.garden : info.tips;
   tipsList.innerHTML = '';
-  info.tips.forEach(t=>{
+  tips.forEach(t=>{
     const li = document.createElement('li');
     li.textContent = t;
     tipsList.appendChild(li);
@@ -556,7 +685,8 @@ function applyLang(l){
   document.getElementById('newMoonBtn').textContent = L.newMoonBtn;
   document.getElementById('todayBtn').textContent = L.todayBtn;
   document.getElementById('fullMoonBtn').textContent = L.fullMoonBtn;
-  document.getElementById('tipsLabel').textContent = L.tipsLabel;
+  document.getElementById('modePersonal').textContent = L.modePersonal;
+  document.getElementById('modeGarden').textContent = L.modeGarden;
   document.getElementById('footDisclaimer').textContent = L.footnote;
   document.getElementById('footCredit').textContent = L.credit;
   document.getElementById('langDe').classList.toggle('active', l === 'de');
@@ -569,6 +699,21 @@ function applyLang(l){
 
 document.getElementById('langDe').addEventListener('click', ()=> applyLang('de'));
 document.getElementById('langPt').addEventListener('click', ()=> applyLang('pt'));
+
+// ---------- Empfehlungs-Modus (Persönlich / Garten) ----------
+function setTipsMode(m){
+  tipsMode = m;
+  try{ localStorage.setItem('luna-tips', m); }catch(e){}
+  document.getElementById('modePersonal').classList.toggle('active', m === 'personal');
+  document.getElementById('modeGarden').classList.toggle('active', m === 'garden');
+  // Karte im neuen Modus neu rendern
+  const off = currentOffset === null ? 0 : currentOffset;
+  currentOffset = null;
+  updateForOffset(off);
+}
+
+document.getElementById('modePersonal').addEventListener('click', ()=> setTipsMode('personal'));
+document.getElementById('modeGarden').addEventListener('click', ()=> setTipsMode('garden'));
 
 // ---------- Ticks ----------
 const ticksEl = document.getElementById('ticks');
@@ -656,6 +801,7 @@ document.getElementById('fullMoonBtn').addEventListener('click', ()=> goToOffset
 document.getElementById('newMoonBtn').addEventListener('click', ()=> goToOffset(nextPhaseOffset(0)));
 
 // ---------- Init ----------
+setTipsMode(tipsMode);
 applyLang(lang);
 </script>
 
