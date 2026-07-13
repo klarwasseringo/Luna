@@ -102,7 +102,7 @@
     border: 1px solid var(--line);
   }
   .moon-holder{
-    position:absolute; inset: 55px; border-radius:50%;
+    position:absolute; inset: 42px; border-radius:50%;
     filter: drop-shadow(0 0 26px rgba(201,168,106,0.18));
   }
   /* Foto als normales <img> (robuster als SVG-<image> mit Data-URI),
@@ -188,6 +188,7 @@
   <div class="lang-switch">
     <button id="langDe" data-lang="de">DE</button>
     <button id="langPt" data-lang="pt">PT</button>
+    <button id="langEs" data-lang="es">ES</button>
   </div>
   <div class="eyebrow">Luna</div>
   <h1 id="appTitle">Dein Mond heute</h1>
@@ -820,6 +821,285 @@ const I18N = {
         ]
       }
     }
+  },
+  es: {
+    title: 'Tu Luna hoy',
+    subtitle: 'Gira el anillo para viajar por los días lunares',
+    hint: '← hacia el pasado  ·  hacia el futuro →',
+    newMoonBtn: '🌑 Luna nueva',
+    todayBtn: 'Hoy',
+    fullMoonBtn: '🌕 Luna llena',
+    illumSuffix: '% iluminada',
+    tipsLabel: 'Energía e impulsos para este día',
+    tipsLabelGarden: 'Jardín y plantas en este día',
+    modePersonal: 'Personal',
+    modeGarden: 'Jardín',
+    seasons: ['primavera','verano','otoño','invierno'],
+    day: ' día', days: ' días',
+    weekdays: ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'],
+    months: ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],
+    fmtToday: (d,m) => 'Hoy · ' + d + ' ' + m,
+    fmtDate: (wd,d,m,y) => wd + ', ' + d + ' ' + m + y,
+    footnote: 'Las interpretaciones siguen concepciones tradicionales y esotéricas sobre la influencia de la luna en el bienestar personal — no están científicamente probadas y se ofrecen como impulso inspirador, no como sustituto del propio juicio.',
+    credit: 'Foto de la luna: NASA Scientific Visualization Studio / Lunar Reconnaissance Orbiter (dominio público).',
+    phases: {
+      newMoon: {
+        name: 'Luna nueva',
+        mood: 'El cielo se muestra oscuro y silencioso. Una fase de punto cero — el momento en que comienza un nuevo ciclo, antes de que nada sea visible.',
+        tips: [
+          'Fíjate una meta clara y serena para las próximas semanas.',
+          'Evita grandes decisiones bajo presión de tiempo.',
+          'Permítete descanso consciente en lugar de nuevos compromisos.',
+          'Escribir sobre tus deseos puede ser hoy especialmente clarificador.'
+        ],
+        garden: [
+          [ // primavera
+            'Prepara los bancales y afloja la tierra para la temporada.',
+            'Poda los brotes enfermos y los daños por heladas.',
+            'Planifica los cultivos — sembrar, recién a partir de mañana.'
+          ],
+          [ // verano
+            'Hoy no siembres — cuida los bancales y remueve la tierra.',
+            'Retira sin dudar las plantas enfermas o con plagas.',
+            'Observa el jardín: ¿qué necesitará espacio pronto?'
+          ],
+          [ // otoño
+            'Despeja los bancales cosechados y prepara la tierra.',
+            'Elimina las partes enfermas — no las eches al compost.',
+            'Esboza la rotación de cultivos del próximo año.'
+          ],
+          [ // invierno
+            'Día de descanso — limpia, afila y engrasa las herramientas.',
+            'Revisa las semillas y planifica la nueva temporada.',
+            'Si no hiela, retira las ramas enfermas de los árboles.'
+          ]
+        ]
+      },
+      waxCrescent: {
+        name: 'Luna creciente',
+        mood: 'Una luz delicada crece en el borde. La energía despierta, pero aún es frágil — los primeros pasos valen más que los grandes saltos.',
+        tips: [
+          'Atrévete al primer pequeño paso hacia un nuevo proyecto.',
+          'Mantente flexible — los planes aún pueden cambiar.',
+          'Rodéate de personas que te animen.',
+          'Evita comprometerte definitivamente todavía.'
+        ],
+        garden: [
+          [ // primavera
+            'Siembra lechuga, espinaca y hierbas aromáticas.',
+            'Siembra o resiembra el césped — ahora germina con ganas.',
+            'Repica y trasplanta las plántulas jóvenes.'
+          ],
+          [ // verano
+            'Resiembra lechuga, rúcula y hierbas rápidas para el otoño.',
+            'Siembra flores bienales como los pensamientos.',
+            'Riega y abona las plantas de interior.'
+          ],
+          [ // otoño
+            'Siembra canónigos, espinacas y lechugas de invierno.',
+            'Resiembra el césped mientras el suelo sigue templado.',
+            'Planta hierbas en macetas junto a la ventana.'
+          ],
+          [ // invierno
+            'Cultiva berros y germinados en la cocina.',
+            'Riega con moderación las plantas de interior.',
+            'Hacia el final del invierno, adelanta chiles y pimientos.'
+          ]
+        ]
+      },
+      firstQuarter: {
+        name: 'Cuarto creciente',
+        mood: 'Mitad luz, mitad sombra — una tensión que empuja a actuar. Tradicionalmente es el día en que aparecen las primeras resistencias.',
+        tips: [
+          'Enfrenta un obstáculo activamente en lugar de aplazarlo.',
+          'Toma esa decisión que llevas tiempo postergando.',
+          'Canaliza la inquietud en movimiento o deporte.',
+          'Hoy comunica de forma directa, no diplomática.'
+        ],
+        garden: [
+          [ // primavera
+            'Siembra y planta hortalizas de hoja: colinabo, acelga, guisantes.',
+            'Haz esquejes — ahora enraízan bien.',
+            'Refuerza las plántulas débiles con abono líquido.'
+          ],
+          [ // verano
+            'Aún puedes sembrar judías y coles de otoño.',
+            'Corta y enraíza esquejes de hierbas.',
+            'Ata y entutora las plantas altas.'
+          ],
+          [ // otoño
+            'Planta verduras de invierno como la col rizada.',
+            'Corta esquejes leñosos y plántalos en tierra.',
+            'Prepara las macetas sensibles para el frío.'
+          ],
+          [ // invierno
+            'Adelanta pimientos y chiles en el alféizar.',
+            'Enraíza esquejes de plantas de interior.',
+            'Elige los frutales para injertar en primavera.'
+          ]
+        ]
+      },
+      waxGibbous: {
+        name: 'Luna gibosa creciente',
+        mood: 'La luz aumenta visiblemente. Una fase de construcción en la que crecen la energía, el empuje y la visibilidad.',
+        tips: [
+          'Impulsa con constancia los proyectos en marcha.',
+          'Buen día para conversaciones en las que quieras hacerte ver.',
+          'Aprovecha el impulso para tareas que exigen perseverancia.',
+          'Cuida que la energía creciente no se convierta en prisa.'
+        ],
+        garden: [
+          [ // primavera
+            'Siembra tomates, calabacines y judías — o plántalos tras las últimas heladas.',
+            'Riega bien y abona las plantas exigentes.',
+            'Aporta compost a frutales y arbustos de bayas.'
+          ],
+          [ // verano
+            'Cuida las hortalizas de fruto: despunta, riega y abona.',
+            'Cosecha pepinos y calabacines con frecuencia — estimula nuevos frutos.',
+            'Corta flores para el jarrón, durarán más.'
+          ],
+          [ // otoño
+            'Deja madurar los últimos frutos al sol.',
+            'Abona las macetas por última vez.',
+            'Siembra abono verde en los bancales vacíos.'
+          ],
+          [ // invierno
+            'Acompaña las plantas de interior con luz y riego moderado.',
+            'Riega las plantas de hoja perenne en días templados.',
+            'Prepara la poda de los frutales.'
+          ]
+        ]
+      },
+      fullMoon: {
+        name: 'Luna llena',
+        mood: 'El punto culminante del ciclo. Tradicionalmente las emociones se consideran más intensas en esta fase, el sueño más ligero y la percepción más aguda.',
+        tips: [
+          'Deja salir lo que surja emocionalmente en lugar de reprimirlo.',
+          'Reserva tiempo de calma por si el sueño es más inquieto.',
+          'Buen momento para celebrar o soltar algo concluido.',
+          'Evita conflictos impulsivos — hoy la irritabilidad es más probable.'
+        ],
+        garden: [
+          [ // primavera
+            'Cosecha las primeras hierbas — su aroma es hoy más intenso.',
+            'Evita podar o segar hoy.',
+            'Buen día para recolectar hierbas silvestres.'
+          ],
+          [ // verano
+            'Cosecha hierbas para secar y guardar.',
+            'Recoge fruta y verdura para consumir enseguida.',
+            'Recoge semillas de tus flores favoritas.'
+          ],
+          [ // otoño
+            'Cosecha las últimas hierbas antes de las heladas.',
+            'Recoge manzanas y peras para consumo cercano.',
+            'Reúne y seca semillas para el próximo año.'
+          ],
+          [ // invierno
+            'Cosecha brotes frescos de las hierbas del alféizar.',
+            'Hoy no cortes ni serres.',
+            'Rellena los comederos de los pájaros.'
+          ]
+        ]
+      },
+      wanGibbous: {
+        name: 'Luna gibosa menguante',
+        mood: 'La luz se retira. Una fase para evaluar y ordenar, una vez alcanzado el punto álgido.',
+        tips: [
+          'Mira atrás: ¿qué funcionó y qué no?',
+          'Buen momento para terminar tareas en lugar de empezar nuevas.',
+          'Practica gratitud consciente por lo logrado.',
+          'Reduce estímulos — un ritmo más tranquilo sienta bien ahora.'
+        ],
+        garden: [
+          [ // primavera
+            'Siembra zanahorias, rabanitos y cebollas.',
+            'Cava y desherba los bancales — la mala hierba vuelve más despacio.',
+            'Recorta los setos para darles forma.'
+          ],
+          [ // verano
+            'Siembra zanahorias tardías y remolacha.',
+            'Recorta lo marchito y repasa los setos.',
+            'Abona con materia orgánica — el suelo la absorbe bien.'
+          ],
+          [ // otoño
+            'Planta ajos y cebollas de invierno.',
+            'Planta árboles y arbustos — ahora arraigan bien.',
+            'Último corte de setos antes del invierno.'
+          ],
+          [ // invierno
+            'Si el suelo no está helado, aclara los frutales.',
+            'Enriquece los bancales con compost o estiércol.',
+            'Revisa las hortalizas de raíz almacenadas.'
+          ]
+        ]
+      },
+      lastQuarter: {
+        name: 'Cuarto menguante',
+        mood: 'De nuevo luz y sombra en equilibrio — esta vez bajo el signo de soltar. Un día para cerrar conscientemente lo viejo.',
+        tips: [
+          'Ordena — la habitación, la agenda o los temas pendientes.',
+          'Aclara un conflicto latente en lugar de arrastrarlo.',
+          'Despréndete de algo que ya cumplió su propósito.',
+          'Evita empezar hoy algo completamente nuevo.'
+        ],
+        garden: [
+          [ // primavera
+            'Desherba a fondo — la mala hierba vuelve debilitada.',
+            'Recoge caracoles y controla las plagas.',
+            'Planta bulbos de verano, como dalias.'
+          ],
+          [ // verano
+            'Desherba y acolcha antes de que las invasoras suelten semillas.',
+            'Cosecha patatas para almacenar.',
+            'Retira hojas enfermas y vigila las plagas.'
+          ],
+          [ // otoño
+            'Cosecha fruta y verdura para guardar — se conservan más tiempo.',
+            'Planta tulipanes, narcisos y otros bulbos de primavera.',
+            'Divide y recorta las plantas vivaces.'
+          ],
+          [ // invierno
+            'Revisa y ordena las reservas de la despensa.',
+            'En días sin helada, limpia los bancales de hojas viejas.',
+            'Limpia y cuelga cajas nido para los pájaros.'
+          ]
+        ]
+      },
+      wanCrescent: {
+        name: 'Luna menguante',
+        mood: 'La luna casi desaparece. Una fase silenciosa e introspectiva justo antes del nuevo comienzo — tiempo de recargar.',
+        tips: [
+          'Baja el ritmo conscientemente antes de que empiece el nuevo ciclo.',
+          'Reflexiona sobre qué quieres llevarte a la próxima luna nueva.',
+          'Cancela compromisos que solo te agotan.',
+          'Acostarte temprano te sentará hoy especialmente bien.'
+        ],
+        garden: [
+          [ // primavera
+            'Extiende compost y acolcha los bancales.',
+            'Última desherbada antes de la luna nueva.',
+            'Riega y cuida, pero no siembres nada nuevo.'
+          ],
+          [ // verano
+            'Acolcha los bancales para conservar la humedad.',
+            'Voltea el compost.',
+            'Regálale al jardín (y a ti) un día tranquilo.'
+          ],
+          [ // otoño
+            'Recoge hojas para el compost o el acolchado.',
+            'Protege las plantas sensibles con manta térmica y acolchado.',
+            'Prepara el jardín para el descanso invernal.'
+          ],
+          [ // invierno
+            'El jardín descansa — revisa reservas y semillas.',
+            'Cubre el compost para que no pierda nutrientes.',
+            'Recupera fuerzas y sueña la nueva temporada.'
+          ]
+        ]
+      }
+    }
   }
 };
 
@@ -955,6 +1235,7 @@ function applyLang(l){
   document.getElementById('footCredit').textContent = L.credit;
   document.getElementById('langDe').classList.toggle('active', l === 'de');
   document.getElementById('langPt').classList.toggle('active', l === 'pt');
+  document.getElementById('langEs').classList.toggle('active', l === 'es');
   // Karte in neuer Sprache neu rendern
   const off = currentOffset === null ? 0 : currentOffset;
   currentOffset = null;
@@ -963,6 +1244,7 @@ function applyLang(l){
 
 document.getElementById('langDe').addEventListener('click', ()=> applyLang('de'));
 document.getElementById('langPt').addEventListener('click', ()=> applyLang('pt'));
+document.getElementById('langEs').addEventListener('click', ()=> applyLang('es'));
 
 // ---------- Empfehlungs-Modus (Persönlich / Garten) ----------
 function setTipsMode(m){
@@ -1066,7 +1348,7 @@ document.getElementById('newMoonBtn').addEventListener('click', ()=> goToOffset(
 
 // ---------- Init ----------
 // Bei jedem Update zusammen mit der Cache-Version in sw.js hochzählen
-const APP_VERSION = 'v4';
+const APP_VERSION = 'v6';
 document.getElementById('appVersion').textContent = 'Luna ' + APP_VERSION;
 setTipsMode(tipsMode);
 applyLang(lang);
